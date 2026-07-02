@@ -31,15 +31,17 @@ rede bayesiana alimenta a função de custo e a heurística do A\*.
 | `algoritmo_busca.py` | Módulo 2 — A\* com heurística admissível, closed list e estratégias FIFO/Gulosa |
 | `gerar_base_dados.py` | Gera a base simulada de 100 pacientes (distribuições ponderadas realistas) |
 | `integracao_experimento.py` | Orquestra os experimentos comparando FIFO × Gulosa × A\* |
+| `app_streamlit.py` | Interface interativa (Streamlit) — triagem individual e comparação das estratégias |
 | `base_pacientes_simulados.csv` | Base simulada gerada (delimitador `;`) |
 
 ## Requisitos
 
 - Python 3.10+
 - [pgmpy](https://pgmpy.org/)
+- [streamlit](https://streamlit.io/) (apenas para a interface interativa)
 
 ```bash
-pip install pgmpy
+pip install pgmpy streamlit
 ```
 
 ## Como executar
@@ -50,7 +52,21 @@ python gerar_base_dados.py
 
 # 2. Rodar os experimentos comparativos (cenário pequeno e médio)
 python integracao_experimento.py
+
+# 3. (Opcional) Abrir a interface interativa no navegador
+python -m streamlit run app_streamlit.py
 ```
+
+## Interface interativa (Streamlit)
+
+A interface abre em `http://localhost:8501` e tem duas abas:
+
+- **Triagem individual** — selecione os sinais vitais de um paciente e veja a
+  rede bayesiana produzir o vetor P(baixa/média/alta) em tempo real.
+- **Comparação de estratégias** — ajuste o tamanho da fila, a semente e o
+  tempo de consulta, e compare FIFO × Gulosa × A\* lado a lado: risco
+  acumulado, curva de evolução por atendimento e a ordem decidida por cada
+  estratégia (útil para a demonstração do vídeo).
 
 ## Reprodutibilidade
 

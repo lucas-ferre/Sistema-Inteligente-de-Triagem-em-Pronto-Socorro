@@ -107,10 +107,14 @@ def _obter_motor_inferencia() -> VariableElimination:
     return _motor_inferencia
 
 
-def obter_probabilidade_gravidade(sintomas: dict) -> float:
+def obter_distribuicao_gravidade(sintomas: dict) -> list:
+    """Retorna a distribuição completa [P(baixa), P(média), P(alta)]."""
     probabilidades = _obter_motor_inferencia().query(
         variables=['Gravidade'],
         evidence=sintomas
     )
+    return list(probabilidades.values)
 
-    return probabilidades.values[2] 
+
+def obter_probabilidade_gravidade(sintomas: dict) -> float:
+    return obter_distribuicao_gravidade(sintomas)[2]  # P(Gravidade = Alta)
