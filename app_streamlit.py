@@ -38,8 +38,9 @@ TITULOS_SINTOMAS = {
     'Nivel_Dor': "Nível de Dor",
 }
 
-# Acima deste tamanho de fila o A* começa a demorar visivelmente
-LIMITE_PACIENTES_A_ESTRELA = 22
+# Limite prático para a demo: com 20 pacientes o A* responde em segundos,
+# mas o espaço de busca dobra a cada paciente extra (22 já leva minutos)
+LIMITE_PACIENTES_A_ESTRELA = 20
 
 
 @st.cache_data(show_spinner=False)
@@ -160,8 +161,8 @@ with aba_comparacao:
     tempo_consulta = col_tempo.slider("Tempo de consulta (min)", min_value=5,
                                       max_value=30, value=TEMPO_CONSULTA_MINUTOS)
 
-    if n_pacientes > 20:
-        st.info("Filas acima de 20 pacientes podem levar mais tempo — "
+    if n_pacientes >= 15:
+        st.info("Filas grandes podem levar alguns segundos — "
                 "o espaço de busca do A* cresce exponencialmente.")
 
     try:

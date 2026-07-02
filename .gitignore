@@ -1,0 +1,24 @@
+# Bytecode e caches do Python
+__pycache__/
+*.py[cod]
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Configuração local de ferramentas de desenvolvimento (não faz parte do trabalho)
+.claude/
+.vscode/
+.idea/
+
+# Segredos locais do Streamlit (se algum dia existirem)
+.streamlit/secrets.toml
+
+# Arquivos temporários do Word/Office (aparecem com o Relatório.docx aberto)
+~$*
+
+# Lixo do sistema operacional
+Thumbs.db
+Desktop.ini
+.DS_Store
