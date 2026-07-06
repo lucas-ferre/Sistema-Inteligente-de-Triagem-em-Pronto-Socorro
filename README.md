@@ -51,19 +51,19 @@ pip install -r requirements.txt
 ## Como executar
 
 ```bash
-# 1. (Opcional) Regenerar a base simulada de pacientes
+# 1. Regenerar a base simulada de pacientes
 python gerar_base_dados.py
 
 # 2. Rodar os experimentos comparativos (cenário pequeno e médio)
 python integracao_experimento.py
 
-# 3. (Opcional) Confirmar a otimalidade do A* por força bruta (720 permutações)
+# 3. Confirmar a otimalidade do A* por força bruta (720 permutações)
 python verificar_otimalidade.py
 
-# 4. (Opcional) Rodar os testes unitários
+# 4. Rodar os testes unitários
 python -m pytest test_sistema.py -v
 
-# 5. (Opcional) Abrir a interface interativa no navegador
+# 5. Abrir a interface interativa no navegador
 python -m streamlit run app_streamlit.py
 ```
 
