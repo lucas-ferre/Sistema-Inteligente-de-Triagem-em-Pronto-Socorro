@@ -1,0 +1,6 @@
+# Dependências do Sistema Inteligente de Triagem (Python 3.10+)
+# Instalar com: pip install -r requirements.txt
+
+pgmpy==1.1.2       # Módulo 1 — rede bayesiana e inferência
+streamlit==1.50.0  # interface interativa (app_streamlit.py)
+pytest==8.4.1      # testes unitários (test_sistema.py)

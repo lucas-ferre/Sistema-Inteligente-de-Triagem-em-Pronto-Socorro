@@ -1,6 +1,7 @@
 # Bytecode e caches do Python
 __pycache__/
 *.py[cod]
+.pytest_cache/
 
 # Ambientes virtuais
 .venv/

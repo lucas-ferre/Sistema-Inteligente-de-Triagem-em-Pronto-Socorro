@@ -31,17 +31,21 @@ rede bayesiana alimenta a função de custo e a heurística do A\*.
 | `algoritmo_busca.py` | Módulo 2 — A\* com heurística admissível, closed list e estratégias FIFO/Gulosa |
 | `gerar_base_dados.py` | Gera a base simulada de 100 pacientes (distribuições ponderadas realistas) |
 | `integracao_experimento.py` | Orquestra os experimentos comparando FIFO × Gulosa × A\* |
+| `verificar_otimalidade.py` | Confirma por força bruta (720 permutações) que o A\* encontra o ótimo global |
+| `test_sistema.py` | Testes unitários (pytest) — validade das CPTs, admissibilidade da heurística e otimalidade do A\* |
 | `app_streamlit.py` | Interface interativa (Streamlit) — triagem individual e comparação das estratégias |
 | `base_pacientes_simulados.csv` | Base simulada gerada (delimitador `;`) |
+| `requirements.txt` | Dependências com versões fixadas |
 
 ## Requisitos
 
 - Python 3.10+
 - [pgmpy](https://pgmpy.org/)
 - [streamlit](https://streamlit.io/) (apenas para a interface interativa)
+- [pytest](https://pytest.org/) (apenas para os testes unitários)
 
 ```bash
-pip install pgmpy streamlit
+pip install -r requirements.txt
 ```
 
 ## Como executar
@@ -53,7 +57,13 @@ python gerar_base_dados.py
 # 2. Rodar os experimentos comparativos (cenário pequeno e médio)
 python integracao_experimento.py
 
-# 3. (Opcional) Abrir a interface interativa no navegador
+# 3. (Opcional) Confirmar a otimalidade do A* por força bruta (720 permutações)
+python verificar_otimalidade.py
+
+# 4. (Opcional) Rodar os testes unitários
+python -m pytest test_sistema.py -v
+
+# 5. (Opcional) Abrir a interface interativa no navegador
 python -m streamlit run app_streamlit.py
 ```
 
@@ -92,7 +102,8 @@ Resultados (semente 42, consulta de 10 min):
 | Médio (20 pacientes) | 5861.45 | 1752.75 | **1722.40** |
 
 O A\* produz o menor risco acumulado nos dois cenários, como esperado. No
-cenário pequeno, a otimalidade foi verificada por força bruta (720 permutações).
+cenário pequeno, a otimalidade foi verificada por força bruta — as 720
+permutações são reavaliadas por `verificar_otimalidade.py`.
 
 ## Notas de modelagem
 
