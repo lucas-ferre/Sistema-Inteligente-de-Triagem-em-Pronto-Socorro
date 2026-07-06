@@ -12,8 +12,11 @@ env/
 .vscode/
 .idea/
 
-# Segredos locais do Streamlit (se algum dia existirem)
+# Segredos locais do Streamlit
 .streamlit/secrets.toml
+
+# Arquivos de Log
+*.log
 
 # Arquivos temporários do Word/Office (aparecem com o Relatório.docx aberto)
 ~$*

@@ -104,4 +104,3 @@ cenário pequeno, a otimalidade foi verificada por força bruta (720 permutaçõ
   inspirados no Protocolo de Manchester.
 - **Base simulada**: os sintomas seguem distribuições ponderadas coerentes com
   as CPTs a priori da rede (ex.: ~10% de saturação crítica, não 33%).
-# Sistema-Inteligente-de-Triagem-em-Pronto-Socorro
